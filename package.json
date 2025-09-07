@@ -1,0 +1,44 @@
+{
+	"name": "@drt/event-emitter",
+	"version": "0.2.0",
+	"description": "A tiny, type-safe event emitter for TypeScript",
+	"author": "Doron Torangy",
+	"license": "MIT",
+	"main": "./dist/cjs/mod.js",
+	"types": "./dist/cjs/mod.d.ts",
+	"module": "./dist/esm/mod.js",
+	"exports": {
+		".": {
+			"import": "./dist/esm/mod.js",
+			"require": "./dist/cjs/mod.js",
+			"types": "./dist/cjs/mod.d.ts"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "npm run clean && npm run build:cjs && npm run build:esm",
+		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build:esm": "tsc -p tsconfig.esm.json",
+		"build:watch": "npm run build:cjs && npm run build:esm -- --watch",
+		"clean": "rm -rf dist",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"event-emitter",
+		"typescript",
+		"async",
+		"events",
+		"observer",
+		"pubsub"
+	],
+	"devDependencies": {
+		"typescript": "^5.9.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DoronTorangy/event-emitter.git"
+	},
+	"homepage": "https://github.com/DoronTorangy/event-emitter"
+}
